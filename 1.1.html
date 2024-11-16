@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tamaños de pantalla</title>
+    <style>
+        h1 { text-align: center; }
+    </style>
+</head>
+<body>
+    <h1 id="info"></h1>
+    <script>
+        function updateScreenInfo() {
+            const screenInfo = `Tamaño pantalla: ${screen.width}x${screen.height}, ` +
+                               `Tamaño navegador: ${window.innerWidth}x${window.innerHeight}, ` +
+                               `Tamaño útil: ${document.documentElement.clientWidth}x${document.documentElement.clientHeight}`;
+            document.getElementById('info').textContent = screenInfo;
+        }
+        setInterval(updateScreenInfo, 1000);
+        updateScreenInfo();
+    </script>
+</body>
+</html>

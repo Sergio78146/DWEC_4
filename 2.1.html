@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Comparar fechas</title>
+</head>
+<body>
+    <input type="date" id="fecha">
+    <button onclick="compararFecha()">Comparar</button>
+    <p id="resultado"></p>
+    <script>
+        function compararFecha() {
+            const fechaInput = new Date(document.getElementById('fecha').value);
+            const fechaActual = new Date();
+            const resultado = fechaInput > fechaActual ? 'Posterior' : 'Anterior';
+            document.getElementById('resultado').textContent = `La fecha es ${resultado} a la actual.`;
+        }
+    </script>
+</body>
+</html>

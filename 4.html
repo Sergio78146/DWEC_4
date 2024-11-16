@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de nombres</title>
+</head>
+<body>
+    <input type="text" id="nombre">
+    <button onclick="agregarNombre()">Agregar</button>
+    <button onclick="limpiarLista()">Vaciar lista</button>
+    <ul id="lista"></ul>
+    <script>
+        const lista = JSON.parse(localStorage.getItem('listaNombres')) || [];
+        actualizarLista();
+
+        function agregarNombre() {
+            const nombre = document.getElementById('nombre').value.trim();
+            if (nombre) {
+                lista.push(nombre);
+                localStorage.setItem('listaNombres', JSON.stringify(lista));
+                actualizarLista();
+                document.getElementById('nombre').value = '';
+            }
+        }
+
+        function limpiarLista() {
+            localStorage.removeItem('listaNombres');
+            lista.length = 0;
+            actualizarLista();
+        }
+
+        function actualizarLista() {
+            const ul = document.getElementById('lista');
+            ul.innerHTML = lista.map(nombre => `<li>${nombre}</li>`).join('');
+        }
+    </script>
+</body>
+</html>

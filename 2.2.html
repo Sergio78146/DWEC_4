@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Fecha +20 días</title>
+</head>
+<body>
+    <input type="date" id="fecha" readonly>
+    <script>
+        const fechaActual = new Date();
+        fechaActual.setDate(fechaActual.getDate() + 20);
+        document.getElementById('fecha').valueAsDate = fechaActual;
+    </script>
+</body>
+</html>

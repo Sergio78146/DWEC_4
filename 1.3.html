@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Información del navegador</title>
+</head>
+<body>
+    <h1 id="info"></h1>
+    <script>
+        const info = `Sistema operativo: ${navigator.platform}, Navegador: ${navigator.userAgent}, ` +
+                     `¿Móvil?: ${/Mobi|Android/i.test(navigator.userAgent) ? 'Sí' : 'No'}`;
+        document.getElementById('info').textContent = info;
+    </script>
+</body>
+</html>

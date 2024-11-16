@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Manipulación de texto</title>
+</head>
+<body>
+    <textarea id="texto" rows="5" cols="40"></textarea>
+    <button onclick="procesarTexto()">Procesar</button>
+    <p id="resultados"></p>
+    <script>
+        function procesarTexto() {
+            const texto = document.getElementById('texto').value;
+            const palabras = texto.split(' ').filter(Boolean);
+            const frases = texto.split('.').filter(Boolean);
+            const apariciones = (texto.match(/alumn[oa]/gi) || []).length;
+            const textoModificado = texto.replace(/alumn[oa]/gi, 'TuNombre');
+            
+            const resultados = `
+                Longitud en caracteres: ${texto.length}<br>
+                Longitud en palabras: ${palabras.length}<br>
+                Número de frases: ${frases.length}<br>
+                Primeros 10 caracteres: ${texto.slice(0, 10).toUpperCase()}<br>
+                Apariciones de "alumno" o "alumna": ${apariciones}<br>
+                Texto modificado: ${textoModificado}
+            `;
+            document.getElementById('resultados').innerHTML = resultados;
+        }
+    </script>
+</body>
+</html>

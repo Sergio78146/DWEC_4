@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Location e History</title>
+</head>
+<body>
+    <h1 id="url"></h1>
+    <button onclick="goToGoogle()">Ir a Google</button>
+    <button onclick="goToYahoo()">Ir a Yahoo</button>
+    <script>
+        document.getElementById('url').textContent = `URL actual: ${window.location.href}`;
+        
+        function goToGoogle() {
+            location.href = "https://www.google.com";
+        }
+        
+        function goToYahoo() {
+            location.replace("https://www.yahoo.com");
+        }
+    </script>
+</body>
+</html>
